@@ -16,8 +16,8 @@ int main()
 		cout << "Error!\n";
 		return 1;
 	}
-
 	int rezout = Calc(out);
-	cout << rezout << endl;
+	cout << "OPZ:" <<out<< endl;
+	cout << "Rezout: "<< rezout << endl;;
 	return 0;
 }
