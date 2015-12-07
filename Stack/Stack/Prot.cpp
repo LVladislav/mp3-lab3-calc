@@ -4,6 +4,10 @@ bool OPZ(char *str, char out[])
 {
 	char *znak = "+-*/";
 	int Prior[] = { 1, 1, 2, 2 };
+	    //Х ^    высокий
+		//Х *, / средний
+		//Х +,-  низкий
+		//Х ()   самый низкий
 	TStack Op;
 	int i = 0;
 	int j = 0;
@@ -12,13 +16,13 @@ bool OPZ(char *str, char out[])
 		return false;
 	}
 	if (strchr(znak, str[0])) // проверка того, что нулевой элемент не может быть знаком
-	{
+	{ // поиск знака в строке str[];
 		return false;
 	}
 
-	while (str[i] != '\0')
+	while (str[i] != NULL)
 	{
-		if (isdigit(str[i]))//isdigit() -  провер€ет, €вл€етс€ ли сивол цифрой
+		if (isdigit(str[i])) //isdigit() -  провер€ет, €вл€етс€ ли сивол цифрой
 		{
 			out[j] = str[i]; //засунули число в выходную строку
 			j++;
@@ -63,7 +67,7 @@ int Calc(char out[])
 {
 	TStack Op;
 	int i = 0;
-	while (out[i] != '\0')
+	while (out[i] != NULL)
 	{
 		if (isdigit(out[i])) //isdigit() -  провер€ет, €вл€етс€ ли сивол цифрой
 		{
